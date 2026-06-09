@@ -1,0 +1,13 @@
+function [Y]=effet_delay(X,FS,att,d)
+    %   Y   = spectre du signal de sortie
+    %   X   = spectre du signal d'entr�
+    %   FS  = frequence d'echantillonnage
+    %   att = attenuation de l'echo entre 0 et 1
+    %   d   = decalage de l'echo en ms
+del=round(d*FS/1000);
+n = 1 : length(X)+del; 
+R = zeros(del,1);
+X = [X ; R];
+Z = [R ; att * X];
+Y(n) = X(n) + Z(n);
+Y = Y * max(abs(X))/max(abs(Y));
