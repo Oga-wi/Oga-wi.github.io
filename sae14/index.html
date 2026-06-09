@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+            <title>SAE14 TP2 - CV personnel</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+                rel="stylesheet">
+
+            <style>
+                .ubuntu-regular {
+                    font-family: "Ubuntu", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                }
+
+                body {
+                    font-family: 'Ubuntu', sans-serif;
+                    font-size: 120%;
+                    background-color: #dddddd;
+                }
+
+                .presentation {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1em;
+                    text-align: center;
+                    font-size: 85%;
+                    color: #0c00b8;
+                    margin: 1ex auto;
+                    padding: 1em;
+                    background-color: #c7c7ff;
+                    max-width: 70rem;
+                    border-radius: 6px;
+                }
+
+                .presentation img {
+                    float: none;
+                    margin: 0 auto;
+                    width: 8em;
+                    height: 8em;
+                    border: 1px #060080;
+                    display: block;
+                }
+
+                .item {
+                    color: #0c00b8;
+                }
+
+                .site {
+                    max-width: 90%;
+                    margin: 1.5rem auto;
+                    padding: 1rem;
+                    box-sizing: border-box;
+                }
+
+                .navigation {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1.25rem;
+                    background-color: #c7c7ff;
+                    text-transform: uppercase;
+                    padding: 0.5rem 0.75rem;
+                    margin: 1.25rem auto;
+                    border-radius: 6px;
+                    align-items: center;
+                    max-width: 100%;
+                }
+
+                .navigation a {
+                    color: #0c00b8;
+                    text-decoration: none;
+                    padding: 0.25rem 0.6rem;
+                    display: inline-block;
+                    font-weight: 600;
+                }
+
+                .navigation a:hover {
+                    background-color: #8484fe;
+                    color: #fff;
+                    border-radius: 4px;
+                }
+
+                .formation,
+                .certificats,
+                .langue,
+                .reseaux-sociaux {
+                    background: hsl(243, 100%, 82%);
+                    padding: 1rem;
+                    margin: 1rem auto;
+                    border-radius: 8px;
+                    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+                    max-width: 100%;
+                }
+
+                .realisation {
+                    background-color: #c7c7ff;
+                    padding: 0.5em;
+                    width: 70%;
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-radius: 6px;
+                }
+
+                .presentation img {
+                    width: 6em;
+                    height: 6em;
+                }
+
+                .navigation {
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                }
+
+                .navigation a {
+                    padding: 0.35rem 0.5rem;
+                }
+
+                .presentation a {
+                    text-decoration: none;
+                    color: #0c00b8;
+                    font-weight: 800;
+                }
+
+                h2 {
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: center;
+                    background-color: #c7c7ff;
+                    text-transform: uppercase;
+                    padding: 0.2em;
+                    border: rgb(0, 2, 43) 2px solid;
+                    margin-left: 5%;
+                    margin-right: 5%;
+                    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+                    color: #0c00b8;
+                }
+
+                ul {
+                    margin: 1em;
+                    list-style: square;
+                }
+
+                ul .item {
+                    list-style-image: url('checkmark.gif');
+                }
+
+                /* Uniform styling for all list items with class="item" */
+                .item {
+                    color: #0c00b8;
+                    font-weight: 500;
+                    margin: 0.35rem 0;
+                    padding-left: 0.25rem;
+                    list-style-position: outside;
+                }
+
+                .realisation {
+                    background-color: #c7c7ff;
+                    padding: 0.5em;
+                    width: 70%;
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .certificats, 
+                .languetxt,
+                .reseau {
+                    color: red;
+                    font-weight: bold;
+                }
+
+                .duolingo {
+                    color: green;
+                }
+
+                .institue {
+                    font-weight: normal;
+                    color: #0c00b8;
+                }
+
+                .date {
+                    color: #00a51b;
+                    font-weight: normal;
+                }
+
+                .institue {
+                    font-weight: normal;
+                    color: #b15900;
+                }
+
+                .identifiant {
+                    font-weight: 100;
+                    color: rgb(134, 0, 0);
+                }
+            </style>
+
+</head>
+
+<body class="site">
+
+    <div class="presentation">
+        <img src="unnamed.jpg" alt="Photo" />
+        <h1>Gabriel BABINI</h1>
+        2 allée des byzantins <br />
+        54500 Vandœuvre-lès-Nancy <br />
+        Tel portable : 06.12.34.56.78 <br />
+        Célibataire, 18 ans, Français <br />
+    </div>
+
+    <div class="navigation">
+        <a href="#formation">Formation</a>
+        <a href="#certificats">Certificats</a>
+        <a href="#langues">Langues</a>
+        <a href="#reseaux-sociaux">Réseaux sociaux</a>
+    </div>
+
+    <div class="formation" id="formation">
+        <h2>Formations</h2>
+        <ul>
+            <li>
+                <span class="diplome">Bac Scientifique (mention assez bien 13.3)</span>,
+                <span class="institue">Lycée la Briquerie</span> -
+                <span class="date">2022/2025</span>
+                <ul>
+                    <li class="item">Spécialité Mathématiques</li>
+                    <li class="item">Spécialité Physique-Chimie</li>
+                    <li class="item">Option Sciences de l'Ingénieur</li>
+                </ul>
+            </li>
+            <li>
+                <span class="diplome">Réseau et télécommunications</span>,
+                <span class="institue">IUT de Nancy-Brabois</span> -
+                <span class="date">2025/2028</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="certificats" id="certificats">
+        <h2>Certificats</h2>
+        <ul>
+            <li>
+                <div class="certificat-info">
+                    <span class="certificat">Pre Security Certificate</span> -
+                    <span class="institue">TryHackMe</span> -
+                    <span class="date">Août 2025</span>
+                </div>
+                <div class="certificat-details">
+                    <span class="identifiant">ID: THM-O8WCHCJIRE</span>
+                    <span class="lien">
+                        <a href="https://tryhackme.com/certificates/THM-O8WCHCJIRE">Voir le certificat</a>
+                    </span>
+                </div>
+                <ul>
+                    <li class="item">Notions de base en cybersécurité</li>
+                    <li class="item">Principes de base et vulnérabilités des réseaux</li>
+                    <li class="item">Le web et les attaques courantes</li>
+                    <li class="item">Apprendre à utiliser le système d'exploitation Linux</li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="certificat-info">
+                    <span class="certificat">Notion Workflows Badge</span> -
+                    <span class="institue">Notion</span> -
+                    <span class="date">Octobre 2025</span>
+                </div>
+                <div class="certificat-details">
+                    <span class="identifiant">ID: m3ircwazqn4j</span>
+                    <span class="lien">
+                        <a href="https://verify.skilljar.com/c/m3ircwazqn4j">Voir le certificat</a>
+                    </span>
+                </div>
+            </li>
+
+            <li>
+                <div class="certificat-info">
+                    <span class="certificat">Notion Essentials Badge</span> -
+                    <span class="institue">Notion</span> -
+                    <span class="date">Octobre 2025</span>
+                </div>
+                <div class="certificat-details">
+                    <span class="identifiant">ID: 5tiivzto96m3</span>
+                    <span class="lien">
+                        <a href="https://verify.skilljar.com/c/5tiivzto96m3">Voir le certificat</a>
+                    </span>
+                </div>
+            </li>
+
+            <li>
+                <div class="certificat-info">
+                    <span class="certificat">Notion Advanced Badge</span> -
+                    <span class="institue">Notion</span> -
+                    <span class="date">Octobre 2025</span>
+                </div>
+                <div class="certificat-details">
+                    <span class="identifiant">ID: k4cb8eyobfrg</span>
+                    <span class="lien">
+                        <a href="https://verify.skilljar.com/c/k4cb8eyobfrg">Voir le certificat</a>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="langue" id="langues">
+        <h2>Langues</h2>
+        <ul>
+            <li>
+                <span class="languetxt">Anglais</span> -
+                <span class="niveau">Niveau B1 avancé</span>
+                <ul>
+                    <li class="item"><span class="duolingo">Score Duolingo : 80</span></li>
+                </ul>
+            </li>
+            <li>
+                <span class="languetxt">Italien</span> -
+                <span class="niveau">Niveau A1 intermédiaire</span>
+                <ul>
+                    <li class="item"><span class="duolingo">Score Duolingo : 10</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="reseaux-sociaux" id="reseaux-sociaux">
+        <h2>Réseaux sociaux</h2>
+        <ul>
+            <li>
+                <span class="reseau">LinkedIn</span> -
+                <span class="lien">
+                    <a href="https://www.linkedin.com/in/gabriel-b-2a9716355/">Mon profil LinkedIn</a>
+                </span>
+            </li>
+            <li>
+                <span class="reseau">TryHackMe</span> -
+                <span class="lien">
+                    <a href="https://tryhackme.com/p/Ogawi">Mon profil TryHackMe</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="realisation">
+        CV powered by my own HTML skills <br />
+        R&T — 2025
+    </div>
+
+</body>
