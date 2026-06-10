@@ -23,463 +23,163 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 15px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ─── CURSOR ─── */
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   * { cursor: default; }
   a { cursor: pointer; }
 
-  /* ─── NAV ─── */
+  /* NAV */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
     padding: 1.2rem 3rem;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);
     border-bottom: 0.5px solid var(--border);
   }
-
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-  }
-
+  .nav-logo { font-family: var(--mono); font-size: 13px; color: var(--muted); letter-spacing: 0.04em; }
   .nav-logo span { color: var(--accent); }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.06em;
-    transition: color 0.2s;
-  }
-
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
+  .nav-status { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--accent); }
+  .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2.5s ease infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); } 50% { opacity: 0.6; box-shadow: 0 0 0 5px rgba(74,222,128,0); } }
 
-  .nav-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-  }
-
-  .pulse {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2.5s ease infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
-    50% { opacity: 0.6; box-shadow: 0 0 0 5px rgba(74,222,128,0); }
-  }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 3rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; position: relative; overflow: hidden; }
   .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 100%, black 40%, transparent 100%);
   }
-
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-
-  h1.hero-name {
-    font-family: var(--serif);
-    font-size: clamp(52px, 8vw, 96px);
-    font-weight: 400;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.6rem;
-  }
-
-  h1.hero-name em {
-    font-style: italic;
-    color: var(--muted);
-  }
-
-  .hero-title {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 2.5rem;
-  }
-
+  .hero-eyebrow { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  h1.hero-name { font-family: var(--serif); font-size: clamp(52px, 8vw, 96px); font-weight: 400; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+  h1.hero-name em { font-style: italic; color: var(--muted); }
+  .hero-title { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-bottom: 2.5rem; }
   .hero-title span { color: var(--text); }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    transition: all 0.2s;
-    border: 0.5px solid var(--border2);
-    color: var(--muted);
-    background: transparent;
-  }
-
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 4px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; border: 0.5px solid var(--border2); color: var(--muted); background: transparent; }
   .btn:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0a0a;
-    border-color: var(--accent);
-    font-weight: 500;
-  }
-
+  .btn-primary { background: var(--accent); color: #0a0a0a; border-color: var(--accent); font-weight: 500; }
   .btn-primary:hover { background: var(--accent2); border-color: var(--accent2); color: #0a0a0a; }
 
-  /* ─── SECTIONS ─── */
-  section {
-    padding: 5rem 3rem;
-    border-top: 0.5px solid var(--border);
-  }
+  /* SECTIONS */
+  section { padding: 5rem 3rem; border-top: 0.5px solid var(--border); }
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3rem; }
+  .section-num { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+  h2.section-title { font-family: var(--serif); font-size: 32px; font-weight: 400; letter-spacing: -0.01em; }
 
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
+  /* À PROPOS */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
+  .about-text { font-size: 15px; color: var(--muted); line-height: 1.85; }
+  .about-text strong { color: var(--text); font-weight: 500; }
+  .about-text p + p { margin-top: 1.25rem; }
+  .about-meta { display: flex; flex-direction: column; gap: 0; }
+  .about-meta-row { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; border-bottom: 0.5px solid var(--border); font-size: 13px; }
+  .about-meta-row:first-child { border-top: 0.5px solid var(--border); }
+  .about-meta-key { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .about-meta-val { color: var(--text); font-size: 13px; text-align: right; }
+  .about-meta-val.accent { color: var(--accent); }
 
-  .section-num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-  }
+  /* THM SECTION */
+  .thm-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .thm-profile { display: flex; align-items: center; gap: 1.25rem; padding: 1.5rem; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 8px; }
+  .thm-icon-lg { width: 48px; height: 48px; border-radius: 10px; background: rgba(74,222,128,0.08); border: 0.5px solid rgba(74,222,128,0.2); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 10px; color: var(--accent); flex-shrink: 0; }
+  .thm-name { font-size: 16px; font-weight: 500; margin-bottom: 2px; }
+  .thm-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .thm-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .thm-stat { background: var(--bg2); padding: 1.25rem 1rem; text-align: center; }
+  .thm-stat-val { font-family: var(--serif); font-size: 28px; line-height: 1; margin-bottom: 4px; }
+  .thm-stat-val.green { color: var(--accent); }
+  .thm-stat-lbl { font-family: var(--mono); font-size: 10px; color: var(--muted); }
 
-  h2.section-title {
-    font-family: var(--serif);
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-  }
-
-  /* ─── SKILLS GRID ─── */
-  .skills-wrap {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.5px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .skill-item {
-    background: var(--bg);
-    padding: 1.25rem 1.5rem;
-    transition: background 0.2s;
-  }
-
+  /* SKILLS */
+  .skills-wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5px; background: var(--border); border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .skill-item { background: var(--bg); padding: 1.25rem 1.5rem; transition: background 0.2s; }
   .skill-item:hover { background: var(--bg3); }
+  .skill-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+  .skill-src { font-family: var(--mono); font-size: 11px; color: var(--muted); }
 
-  .skill-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .skill-src {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  /* ─── CERTIFICATIONS ─── */
-  .certs-list { display: flex; flex-direction: column; gap: 0; }
-
-  .cert-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 0;
-    border-bottom: 0.5px solid var(--border);
-    gap: 1.5rem;
-  }
-
+  /* CERTIFICATIONS */
+  .certs-list { display: flex; flex-direction: column; }
+  .cert-item { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; border-bottom: 0.5px solid var(--border); gap: 1.5rem; }
   .cert-item:first-child { border-top: 0.5px solid var(--border); }
-
   .cert-left { display: flex; align-items: center; gap: 1rem; flex: 1; }
-
-  .cert-icon {
-    width: 36px; height: 36px;
-    border-radius: 8px;
-    background: var(--bg3);
-    border: 0.5px solid var(--border2);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-
+  .cert-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--bg3); border: 0.5px solid var(--border2); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 10px; color: var(--accent); flex-shrink: 0; }
   .cert-name { font-size: 14px; font-weight: 500; }
-
-  .cert-meta {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-
-  .cert-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    padding: 3px 10px;
-    border-radius: 3px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
+  .cert-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .cert-badge { font-family: var(--mono); font-size: 10px; padding: 3px 10px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; }
   .badge-green { background: rgba(74,222,128,0.1); color: var(--accent); border: 0.5px solid rgba(74,222,128,0.25); }
   .badge-muted { background: var(--bg3); color: var(--muted); border: 0.5px solid var(--border2); }
 
-  /* ─── FORMATION ─── */
+  /* FORMATION */
   .edu-list { display: flex; flex-direction: column; gap: 1.5rem; }
-
-  .edu-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 2rem;
-    padding: 1.5rem;
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: 8px;
-    transition: border-color 0.2s;
-  }
-
+  .edu-item { display: grid; grid-template-columns: 120px 1fr; gap: 2rem; padding: 1.5rem; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 8px; transition: border-color 0.2s; }
   .edu-item:hover { border-color: var(--border2); }
-
-  .edu-period {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.8;
-  }
-
+  .edu-period { font-family: var(--mono); font-size: 11px; color: var(--muted); line-height: 1.8; }
   .edu-school { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
   .edu-degree { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-
   .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag { font-family: var(--mono); font-size: 10px; padding: 3px 8px; border-radius: 3px; background: var(--bg3); border: 0.5px solid var(--border2); color: var(--muted); }
 
-  .tag {
-    font-family: var(--mono);
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 3px;
-    background: var(--bg3);
-    border: 0.5px solid var(--border2);
-    color: var(--muted);
-  }
+  /* FORMATION BOTTOM GRID */
+  .edu-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .result-card { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 8px; height: 100%; }
+  .result-label { font-size: 14px; font-weight: 500; }
+  .result-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .result-score { font-family: var(--serif); font-size: 36px; color: var(--accent); line-height: 1; flex-shrink: 0; }
+  .langs-card { padding: 1.5rem; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 8px; }
+  .langs-title { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1rem; }
+  .lang-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 0.5px solid var(--border); }
+  .lang-row:last-child { border-bottom: none; }
+  .lang-name { font-size: 13px; font-weight: 500; }
+  .lang-level { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; }
+  .lang-level .score { color: var(--accent); display: block; font-size: 10px; margin-top: 1px; }
 
-  /* ─── PROJETS ─── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .project-card {
-    background: var(--bg);
-    padding: 1.75rem;
-    transition: background 0.2s;
-  }
-
+  /* PROJETS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .project-card { background: var(--bg); padding: 1.75rem; transition: background 0.2s; }
   .project-card:hover { background: var(--bg3); }
-
-  .project-num {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-
+  .project-num { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-bottom: 1rem; }
   .project-title { font-size: 15px; font-weight: 500; margin-bottom: 8px; }
   .project-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
 
-  /* ─── LANGUES ─── */
-  .langs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-
-  .lang-card {
-    padding: 1.25rem 1.5rem;
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: 8px;
-  }
-
-  .lang-name { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
-  .lang-level { font-family: var(--mono); font-size: 11px; color: var(--muted); }
-
-  /* ─── RÉSULTATS ─── */
-  .result-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem;
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: 8px;
-    max-width: 480px;
-  }
-
-  .result-label { font-size: 14px; font-weight: 500; }
-  .result-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 3px; }
-  .result-score {
-    font-family: var(--serif);
-    font-size: 36px;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  /* ─── CONTACT ─── */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-
-  .contact-info p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-  }
-
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .contact-info p { font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
   .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.9rem 1.25rem;
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: 6px;
-    text-decoration: none;
-    color: var(--text);
-    transition: border-color 0.2s, background 0.2s;
-  }
-
+  .contact-link { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.25rem; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text); transition: border-color 0.2s, background 0.2s; }
   .contact-link:hover { border-color: var(--border2); background: var(--bg3); }
-
   .contact-link-left { display: flex; align-items: center; gap: 10px; }
   .contact-link-icon { font-family: var(--mono); font-size: 12px; color: var(--accent); width: 20px; }
   .contact-link-label { font-size: 13px; }
   .contact-link-arrow { font-size: 11px; color: var(--muted); }
 
-  /* ─── FOOTER ─── */
-  footer {
-    padding: 2rem 3rem;
-    border-top: 0.5px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  /* FOOTER */
+  footer { padding: 2rem 3rem; border-top: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .footer-left, .footer-right { font-family: var(--mono); font-size: 11px; color: var(--muted); }
 
-  .footer-left {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  .footer-right {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  /* ─── ANIMATIONS ─── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.6s ease forwards;
-  }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   .fade-up:nth-child(1) { animation-delay: 0.1s; }
   .fade-up:nth-child(2) { animation-delay: 0.2s; }
   .fade-up:nth-child(3) { animation-delay: 0.35s; }
   .fade-up:nth-child(4) { animation-delay: 0.5s; }
 
-  /* ─── RESPONSIVE ─── */
+  /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { padding: 0 1.5rem 4rem; }
     section { padding: 3rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .thm-wrap { grid-template-columns: 1fr; }
+    .thm-stats { grid-template-columns: repeat(2, 1fr); }
     .contact-grid { grid-template-columns: 1fr; }
     .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .edu-bottom { grid-template-columns: 1fr; }
     footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -490,7 +190,8 @@
 <nav>
   <div class="nav-logo">gb<span>.</span>portfolio</div>
   <ul class="nav-links">
-    <li><a href="#competences">compétences</a></li>
+    <li><a href="#apropos">à propos</a></li>
+    <li><a href="#tryhackme">TryHackMe</a></li>
     <li><a href="#certifications">certifications</a></li>
     <li><a href="#formation">formation</a></li>
     <li><a href="#projets">projets</a></li>
@@ -514,111 +215,120 @@
     </p>
     <div class="hero-cta fade-up">
       <a href="#contact" class="btn btn-primary">→ Me contacter</a>
-      <a href="#certifications" class="btn">Certifications</a>
+      <a href="#tryhackme" class="btn">TryHackMe</a>
       <a href="#projets" class="btn">Projets</a>
-
     </div>
   </div>
 </div>
 
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">À propos</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Étudiant en BUT Réseaux & Télécommunications à l'IUT Nancy-Brabois, je m'intéresse fortement à la <strong>cybersécurité défensive</strong> — analyse de trafic réseau, détection d'intrusions et surveillance des systèmes.</p>
+      <p>Ma formation m'a permis de développer des bases solides en <strong>architecture réseau</strong>, adressage IP, VLANs et protocoles de routage (RIP, OSPF), ainsi qu'en administration d'équipements Cisco. Cette compréhension concrète des infrastructures me permet d'aborder la sécurité avec un regard technique.</p>
+      <p>En parallèle, je m'entraîne régulièrement sur <strong>TryHackMe</strong> à travers des scénarios orientés Blue Team : analyse de captures réseau, détection d'anomalies, réponse à incident. <strong>Certifié SEC1</strong> après un examen pratique de 24h, je maintiens une pratique continue pour rester opérationnel face à des menaces évolutives.</p>
+      <p>Je recherche une <strong>alternance à partir de septembre 2026</strong> pour mettre en pratique ces compétences dans un environnement SOC ou Blue Team.</p>
+    </div>
+    <div class="about-meta">
+      <div class="about-meta-row">
+        <span class="about-meta-key">Formation</span>
+        <span class="about-meta-val">BUT R&T — IUT Nancy-Brabois</span>
+      </div>
+      <div class="about-meta-row">
+        <span class="about-meta-key">Spécialité</span>
+        <span class="about-meta-val">Blue Team / SOC / Défense</span>
+      </div>
+      <div class="about-meta-row">
+        <span class="about-meta-key">Localisation</span>
+        <span class="about-meta-val">Vandœuvre-lès-Nancy</span>
+      </div>
+      <div class="about-meta-row">
+        <span class="about-meta-key">Disponibilité</span>
+        <span class="about-meta-val accent">Alternance sept. 2026</span>
+      </div>
+      <div class="about-meta-row">
+        <span class="about-meta-key">Contact</span>
+        <span class="about-meta-val">Ogawi@proton.me</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRYHACKME -->
+<section id="tryhackme">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">TryHackMe</h2>
+  </div>
+  <div class="thm-wrap">
+    <div class="thm-profile">
+      <div class="thm-icon-lg">THM</div>
+      <div>
+        <div class="thm-name">Ogawi</div>
+        <div class="thm-sub">[0xB][MASTER] · Cyber Security 101 (SEC1) Certified</div>
+        <div class="thm-sub" style="margin-top:4px;">Pratique régulière — scénarios Blue Team</div>
+      </div>
+    </div>
+    <div class="thm-stats">
+      <div class="thm-stat">
+        <div class="thm-stat-val green">top 3%</div>
+        <div class="thm-stat-lbl">Rang mondial</div>
+      </div>
+      <div class="thm-stat">
+        <div class="thm-stat-val">150</div>
+        <div class="thm-stat-lbl">Rooms complétées</div>
+      </div>
+      <div class="thm-stat">
+        <div class="thm-stat-val">33</div>
+        <div class="thm-stat-lbl">Badges</div>
+      </div>
+      <div class="thm-stat">
+        <div class="thm-stat-val">289</div>
+        <div class="thm-stat-lbl">Jours de streak</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COMPÉTENCES -->
 <section id="competences">
   <div class="section-header">
-    <span class="section-num">01</span>
+    <span class="section-num">03</span>
     <h2 class="section-title">Compétences</h2>
   </div>
   <div class="skills-wrap">
-    <div class="skill-item">
-      <div class="skill-name">Security Operations Center (SOC)</div>
-      <div class="skill-src">TryHackMe SEC1</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Wireshark</div>
-      <div class="skill-src">IUT Nancy-Brabois · TryHackMe</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Réponse aux incidents</div>
-      <div class="skill-src">TryHackMe SEC1</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Analyse des journaux</div>
-      <div class="skill-src">TryHackMe SEC1</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Blue Team</div>
-      <div class="skill-src">TryHackMe Cyber Security 101</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Analyse de la sécurité</div>
-      <div class="skill-src">Pre Security Certificate</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">VLANs · RIP · OSPF</div>
-      <div class="skill-src">IUT Nancy-Brabois</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Adressage IP</div>
-      <div class="skill-src">IUT Nancy-Brabois</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Routeurs Cisco</div>
-      <div class="skill-src">IUT Nancy-Brabois</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Architecture réseau</div>
-      <div class="skill-src">IUT Nancy-Brabois</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Ingénierie des réseaux</div>
-      <div class="skill-src">IUT Nancy-Brabois</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Réseaux informatiques</div>
-      <div class="skill-src">Lycée Saint-Exupéry Fameck</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Linux</div>
-      <div class="skill-src">IUT Nancy-Brabois · TryHackMe</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Cybersécurité</div>
-      <div class="skill-src">IUT · Pre Security · Cyber 101</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Purple Team</div>
-      <div class="skill-src">Pre Security Certificate</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Python</div>
-      <div class="skill-src">Lycée Polyvalent la Briquerie</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">HTML / Arduino</div>
-      <div class="skill-src">Lycée Polyvalent la Briquerie</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Ingénierie de projet</div>
-      <div class="skill-src">Lycée Polyvalent la Briquerie</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Java · SQL · PostgreSQL</div>
-      <div class="skill-src">IUT Nancy-Brabois</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Logiciel de productivité Notion</div>
-      <div class="skill-src">Notion Advanced Badge</div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-name">Docker</div>
-      <div class="skill-src">Homelab personnel</div>
-    </div>
+    <div class="skill-item"><div class="skill-name">Security Operations Center (SOC)</div><div class="skill-src">TryHackMe SEC1</div></div>
+    <div class="skill-item"><div class="skill-name">Wireshark</div><div class="skill-src">IUT Nancy-Brabois · TryHackMe</div></div>
+    <div class="skill-item"><div class="skill-name">Réponse aux incidents</div><div class="skill-src">TryHackMe SEC1</div></div>
+    <div class="skill-item"><div class="skill-name">Analyse des journaux</div><div class="skill-src">TryHackMe SEC1</div></div>
+    <div class="skill-item"><div class="skill-name">Blue Team</div><div class="skill-src">TryHackMe Cyber Security 101</div></div>
+    <div class="skill-item"><div class="skill-name">Analyse de la sécurité</div><div class="skill-src">Pre Security Certificate</div></div>
+    <div class="skill-item"><div class="skill-name">VLANs · RIP · OSPF</div><div class="skill-src">IUT Nancy-Brabois</div></div>
+    <div class="skill-item"><div class="skill-name">Adressage IP</div><div class="skill-src">IUT Nancy-Brabois</div></div>
+    <div class="skill-item"><div class="skill-name">Routeurs Cisco</div><div class="skill-src">IUT Nancy-Brabois</div></div>
+    <div class="skill-item"><div class="skill-name">Architecture réseau</div><div class="skill-src">IUT Nancy-Brabois</div></div>
+    <div class="skill-item"><div class="skill-name">Ingénierie des réseaux</div><div class="skill-src">IUT Nancy-Brabois</div></div>
+    <div class="skill-item"><div class="skill-name">Linux</div><div class="skill-src">IUT Nancy-Brabois · TryHackMe</div></div>
+    <div class="skill-item"><div class="skill-name">Cybersécurité</div><div class="skill-src">IUT · Pre Security · Cyber 101</div></div>
+    <div class="skill-item"><div class="skill-name">Purple Team</div><div class="skill-src">Pre Security Certificate</div></div>
+    <div class="skill-item"><div class="skill-name">Java · SQL · PostgreSQL</div><div class="skill-src">IUT Nancy-Brabois</div></div>
+    <div class="skill-item"><div class="skill-name">HTML / CSS</div><div class="skill-src">IUT Nancy-Brabois · SAÉ14</div></div>
+    <div class="skill-item"><div class="skill-name">Python · Arduino</div><div class="skill-src">Lycée Polyvalent la Briquerie</div></div>
+    <div class="skill-item"><div class="skill-name">MATLAB / DSP</div><div class="skill-src">IUT Nancy-Brabois · SAÉ22</div></div>
+    <div class="skill-item"><div class="skill-name">Docker</div><div class="skill-src">Homelab personnel</div></div>
+    <div class="skill-item"><div class="skill-name">Notion</div><div class="skill-src">Notion Advanced Badge</div></div>
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
 <section id="certifications">
   <div class="section-header">
-    <span class="section-num">02</span>
+    <span class="section-num">04</span>
     <h2 class="section-title">Licences & certifications</h2>
   </div>
   <div class="certs-list">
@@ -629,10 +339,7 @@
           <div class="cert-name">Cyber Security 101 (SEC1) Certificate</div>
           <div class="cert-meta">TryHackMe · Émis fév. 2026 · Expire fév. 2029 · ID : 6992d345304bb6299f6d2d3f</div>
           <div class="tags" style="margin-top:6px;">
-            <span class="tag">Wireshark</span>
-            <span class="tag">Analyse des journaux</span>
-            <span class="tag">SOC</span>
-            <span class="tag">Réponse aux incidents</span>
+            <span class="tag">Wireshark</span><span class="tag">Analyse des journaux</span><span class="tag">SOC</span><span class="tag">Réponse aux incidents</span>
           </div>
         </div>
       </div>
@@ -645,8 +352,7 @@
           <div class="cert-name">Cyber Security 101 Certificate</div>
           <div class="cert-meta">TryHackMe · Émis déc. 2025 · Expire déc. 2028 · ID : THM-4KNNL56RS5</div>
           <div class="tags" style="margin-top:6px;">
-            <span class="tag">Wireshark</span>
-            <span class="tag">Linux</span>
+            <span class="tag">Wireshark</span><span class="tag">Linux</span>
           </div>
         </div>
       </div>
@@ -659,9 +365,7 @@
           <div class="cert-name">Pre Security (Legacy) Certificate</div>
           <div class="cert-meta">TryHackMe · Émis août 2025 · Expire oct. 2028 · ID : THM-O8WCHCJIRE</div>
           <div class="tags" style="margin-top:6px;">
-            <span class="tag">Linux</span>
-            <span class="tag">Analyse de la sécurité</span>
-            <span class="tag">Purple Team</span>
+            <span class="tag">Linux</span><span class="tag">Analyse de la sécurité</span><span class="tag">Purple Team</span>
           </div>
         </div>
       </div>
@@ -683,39 +387,9 @@
         <div>
           <div class="cert-name">Notion Advanced Badge</div>
           <div class="cert-meta">Notion · Émis oct. 2025 · Expire oct. 2027 · ID : k4cb8eyobfrg</div>
-          <div class="tags" style="margin-top:6px;">
-            <span class="tag">Logiciel de productivité Notion</span>
-          </div>
         </div>
       </div>
       <span class="cert-badge badge-green">Actif</span>
-    </div>
-  </div>
-  <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <div class="cert-icon" style="width:44px;height:44px;font-size:9px;">THM</div>
-      <div>
-        <div style="font-size: 14px; font-weight: 500;">TryHackMe — Ogawi</div>
-        <div style="font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 2px;">[0xB][MASTER] · Cyber Security 101 (SEC1) Certified</div>
-      </div>
-    </div>
-    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-      <div style="text-align: center;">
-        <div style="font-family: var(--serif); font-size: 28px; color: var(--accent); line-height: 1;">top 3%</div>
-        <div style="font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 2px;">Rang mondial</div>
-      </div>
-      <div style="text-align: center;">
-        <div style="font-family: var(--serif); font-size: 28px; color: var(--text); line-height: 1;">150</div>
-        <div style="font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 2px;">Rooms complétées</div>
-      </div>
-      <div style="text-align: center;">
-        <div style="font-family: var(--serif); font-size: 28px; color: var(--text); line-height: 1;">33</div>
-        <div style="font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 2px;">Badges</div>
-      </div>
-      <div style="text-align: center;">
-        <div style="font-family: var(--serif); font-size: 28px; color: var(--text); line-height: 1;">289</div>
-        <div style="font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 2px;">Jours de streak</div>
-      </div>
     </div>
   </div>
 </section>
@@ -723,7 +397,7 @@
 <!-- FORMATION -->
 <section id="formation">
   <div class="section-header">
-    <span class="section-num">03</span>
+    <span class="section-num">05</span>
     <h2 class="section-title">Formation</h2>
   </div>
   <div class="edu-list">
@@ -736,13 +410,7 @@
         <div class="edu-school">IUT Nancy-Brabois</div>
         <div class="edu-degree">Bachelor universitaire de technologie Réseaux & Télécommunication</div>
         <div class="tags">
-          <span class="tag">Réseaux informatiques</span>
-          <span class="tag">Cybersécurité</span>
-          <span class="tag">Ingénierie des réseaux</span>
-          <span class="tag">Routeurs Cisco</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Java</span>
-          <span class="tag">SQL</span>
+          <span class="tag">Réseaux informatiques</span><span class="tag">Cybersécurité</span><span class="tag">Ingénierie des réseaux</span><span class="tag">Routeurs Cisco</span><span class="tag">Linux</span><span class="tag">Java</span><span class="tag">SQL</span>
         </div>
       </div>
     </div>
@@ -755,30 +423,21 @@
         <div class="edu-school">Lycée Polyvalent la Briquerie</div>
         <div class="edu-degree">Baccalauréat STI2D — Ingénierie et Développement Durable (I2D) · Option SIN</div>
         <div class="tags">
-          <span class="tag">Arduino</span>
-          <span class="tag">HTML</span>
-          <span class="tag">Python</span>
-          <span class="tag">Ingénierie de projet</span>
+          <span class="tag">Arduino</span><span class="tag">HTML</span><span class="tag">Python</span><span class="tag">Ingénierie de projet</span>
         </div>
       </div>
     </div>
     <div class="edu-item">
-      <div class="edu-period">
-        2022<br>→ 2023
-      </div>
+      <div class="edu-period">2022<br>→ 2023</div>
       <div>
         <div class="edu-school">Lycée Saint-Exupéry Fameck</div>
         <div class="edu-degree">Diplômes de niveau Bac</div>
-        <div class="tags">
-          <span class="tag">Réseaux informatiques</span>
-        </div>
+        <div class="tags"><span class="tag">Réseaux informatiques</span></div>
       </div>
     </div>
   </div>
 
-  <!-- Résultats d'examens -->
-  <div style="margin-top: 2.5rem;">
-    <div class="section-num" style="margin-bottom: 1rem;">Résultats d'examens</div>
+  <div class="edu-bottom">
     <div class="result-card">
       <div>
         <div class="result-label">BAC Technologique STI2D</div>
@@ -786,13 +445,34 @@
       </div>
       <div class="result-score">13.3</div>
     </div>
+    <div class="langs-card">
+      <div class="langs-title">// langues</div>
+      <div class="lang-row">
+        <div class="lang-name">Français</div>
+        <div class="lang-level">Bilingue — langue natale</div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-name">Anglais</div>
+        <div class="lang-level">
+          Professionnel fonctionnel
+          <span class="score">Score Duolingo 129 · Juin 2026</span>
+        </div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-name">Italien</div>
+        <div class="lang-level">
+          Niveau A1
+          <span class="score">Score Duolingo 10</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROJETS -->
 <section id="projets">
   <div class="section-header">
-    <span class="section-num">04</span>
+    <span class="section-num">06</span>
     <h2 class="section-title">Projets</h2>
   </div>
   <div class="projects-grid">
@@ -801,37 +481,23 @@
       <div class="project-title">SAE23 — Application web résultats de régates</div>
       <p class="project-desc">Servlets Java connectés à PostgreSQL via JNDI. Requêtes paramétrées (PreparedStatement), rendu HTML dynamique, déployé sur Tomcat/GlassFish sous NetBeans.</p>
       <div class="tags">
-        <span class="tag">Java EE</span>
-        <span class="tag">Servlets</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">JNDI</span>
-        <span class="tag">Tomcat</span>
+        <span class="tag">Java EE</span><span class="tag">Servlets</span><span class="tag">PostgreSQL</span><span class="tag">JNDI</span><span class="tag">Tomcat</span>
       </div>
     </div>
     <div class="project-card">
       <div class="project-num">P-02 · Réseau / Documentation</div>
       <div class="project-title">SAÉ12 — Documentation d'infrastructure réseau</div>
-      <p class="project-desc">Documentation complète d'un réseau domestique multi-étages : topologie en étoile hiérarchisée, plan d'adressage IPv4, configuration DHCP/DNS/VPN (OpenVPN, WireGuard), tests de débits par protocole WiFi (802.11ax/ac/n), inventaire des équipements actifs et passifs. Schéma réseau réalisé avec draw.io.</p>
+      <p class="project-desc">Documentation complète d'un réseau domestique multi-étages : topologie en étoile hiérarchisée, plan d'adressage IPv4, configuration DHCP/DNS/VPN (OpenVPN, WireGuard), tests de débits WiFi (802.11ax/ac/n), inventaire des équipements.</p>
       <div class="tags">
-        <span class="tag">draw.io</span>
-        <span class="tag">Adressage IPv4</span>
-        <span class="tag">DHCP</span>
-        <span class="tag">OpenVPN</span>
-        <span class="tag">WireGuard</span>
-        <span class="tag">WiFi 802.11ax</span>
-        <span class="tag">Topologie réseau</span>
+        <span class="tag">draw.io</span><span class="tag">Adressage IPv4</span><span class="tag">DHCP</span><span class="tag">OpenVPN</span><span class="tag">WireGuard</span><span class="tag">WiFi 802.11ax</span>
       </div>
     </div>
     <div class="project-card">
       <div class="project-num">P-03 · Web / HTML-CSS</div>
       <div class="project-title">SAÉ14 — CV personnel en HTML/CSS</div>
-      <p class="project-desc">Conception d'un CV interactif en HTML/CSS from scratch : mise en page responsive, navigation par ancres, sections structurées (formations, certifications, langues, réseaux sociaux), intégration de photo et polices Google Fonts. Déployé sans framework.</p>
+      <p class="project-desc">Conception d'un CV interactif en HTML/CSS from scratch : mise en page responsive, navigation par ancres, sections structurées, intégration de photo et polices Google Fonts. Sans framework.</p>
       <div class="tags">
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">Google Fonts</span>
-        <span class="tag">Navigation par ancres</span>
-        <span class="tag">Responsive</span>
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Google Fonts</span><span class="tag">Responsive</span>
       </div>
       <div style="margin-top: 1rem;">
         <a href="https://Oga-wi.github.io/sae14/" target="_blank" style="font-family: var(--mono); font-size: 11px; color: var(--accent); text-decoration: none; border: 0.5px solid rgba(74,222,128,0.25); padding: 4px 10px; border-radius: 3px;">Voir le projet ↗</a>
@@ -840,15 +506,9 @@
     <div class="project-card">
       <div class="project-num">P-04 · Signal / DSP</div>
       <div class="project-title">SAÉ22 — Synthèse sonore Karplus-Strong</div>
-      <p class="project-desc">Implémentation MATLAB de l'algorithme de synthèse par guide d'onde (Karplus-Strong) pour simuler le son d'une corde pincée. Développement de 7 effets audio : delay, reverb, chorus, flange, distortion, bitcrusher, multi-échos. Lecture séquentielle et superposition de notes.</p>
+      <p class="project-desc">Implémentation MATLAB de l'algorithme Karplus-Strong pour simuler le son d'une corde pincée. Développement de 7 effets audio : delay, reverb, chorus, flange, distortion, bitcrusher, multi-échos.</p>
       <div class="tags">
-        <span class="tag">MATLAB</span>
-        <span class="tag">Karplus-Strong</span>
-        <span class="tag">DSP</span>
-        <span class="tag">Delay · Reverb · Chorus</span>
-        <span class="tag">Flange · Distortion</span>
-        <span class="tag">Bitcrusher</span>
-        <span class="tag">Synthèse sonore</span>
+        <span class="tag">MATLAB</span><span class="tag">Karplus-Strong</span><span class="tag">DSP</span><span class="tag">Delay · Reverb · Chorus</span><span class="tag">Bitcrusher</span>
       </div>
       <div style="margin-top: 1rem;">
         <a href="https://github.com/Oga-wi/sae22" target="_blank" style="font-family: var(--mono); font-size: 11px; color: var(--accent); text-decoration: none; border: 0.5px solid rgba(74,222,128,0.25); padding: 4px 10px; border-radius: 3px;">Voir le code ↗</a>
@@ -857,36 +517,16 @@
   </div>
 </section>
 
-<!-- LANGUES -->
-<section id="langues">
-  <div class="section-header">
-    <span class="section-num">05</span>
-    <h2 class="section-title">Langues</h2>
-  </div>
-  <div class="langs-grid">
-    <div class="lang-card">
-      <div class="lang-name">Français</div>
-      <div class="lang-level">Bilingue ou langue natale</div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-name">Anglais</div>
-      <div class="lang-level">Capacité professionnelle fonctionnelle<br>
-        <span style="font-size:10px; color:#4ade80;">Score Duolingo 129 · Juin 2026</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header">
-    <span class="section-num">06</span>
+    <span class="section-num">07</span>
     <h2 class="section-title">Contact</h2>
   </div>
   <div class="contact-grid">
     <div class="contact-info">
       <p>Étudiant en 1ère année de BUT Réseaux & Télécommunications à l'IUT Nancy-Brabois. Passionné par la cybersécurité défensive, je m'entraîne régulièrement sur TryHackMe et recherche une alternance à partir de septembre 2026.</p>
-      <p>Focalisé sur le défensif : détection de menaces, analyse réseau, SOC. Passionné par l'administration système et l'auto-hébergement.</p>
+      <p>Focalisé sur le défensif : détection de menaces, analyse réseau, SOC.</p>
       <div style="font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 1rem;">
         <div>Localisation &nbsp;→&nbsp; <span style="color: var(--text);">Vandœuvre-lès-Nancy</span></div>
         <div>Disponibilité &nbsp;→&nbsp; <span style="color: var(--accent);">Alternance sept. 2026</span></div>
@@ -895,31 +535,19 @@
     </div>
     <div class="contact-links">
       <a class="contact-link" href="https://www.linkedin.com/in/gabriel-b-2a9716355/">
-        <div class="contact-link-left">
-          <span class="contact-link-icon">in</span>
-          <span class="contact-link-label">LinkedIn — Gabriel B.</span>
-        </div>
+        <div class="contact-link-left"><span class="contact-link-icon">in</span><span class="contact-link-label">LinkedIn — Gabriel B.</span></div>
         <span class="contact-link-arrow">↗</span>
       </a>
       <a class="contact-link" href="https://tryhackme.com/p/Ogawi">
-        <div class="contact-link-left">
-          <span class="contact-link-icon">thm</span>
-          <span class="contact-link-label">TryHackMe — SEC1 certifié</span>
-        </div>
+        <div class="contact-link-left"><span class="contact-link-icon">thm</span><span class="contact-link-label">TryHackMe — Ogawi</span></div>
         <span class="contact-link-arrow">↗</span>
       </a>
       <a class="contact-link" href="https://github.com/Oga-wi">
-        <div class="contact-link-left">
-          <span class="contact-link-icon">gh</span>
-          <span class="contact-link-label">GitHub</span>
-        </div>
+        <div class="contact-link-left"><span class="contact-link-icon">gh</span><span class="contact-link-label">GitHub — Oga-wi</span></div>
         <span class="contact-link-arrow">↗</span>
       </a>
       <a class="contact-link" href="mailto:Ogawi@proton.me">
-        <div class="contact-link-left">
-          <span class="contact-link-icon">@</span>
-          <span class="contact-link-label">Ogawi@proton.me</span>
-        </div>
+        <div class="contact-link-left"><span class="contact-link-icon">@</span><span class="contact-link-label">Ogawi@proton.me</span></div>
         <span class="contact-link-arrow">↗</span>
       </a>
     </div>
@@ -929,7 +557,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">© 2026 Gabriel B. · BUT R&T — IUT Nancy-Brabois</div>
-  <div class="footer-right">IUT Nancy-Brabois · Certifié TryHackMe SEC1</div>
+  <div class="footer-right">Certifié TryHackMe SEC1</div>
 </footer>
 
 </body>
