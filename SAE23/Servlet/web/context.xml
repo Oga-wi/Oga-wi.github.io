@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/SAE23_Web_API">
+  <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/postgres" password="motdepasse" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5433/mabase" username="admin"/>
+</Context>
