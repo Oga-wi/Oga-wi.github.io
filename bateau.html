@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vendée Globe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg mb-4" style="background-color: #7286dd;" data-bs-theme="dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand text-white fw-semibold" href="#">Vendée Globe</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="skipper.html">Skipper</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="bateau.html">Bateau</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="course.html">Courses</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-light text-primary fw-semibold" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="card-body">
+            <h1 class="card-title" id="bateau">Nom bateau</h1>
+            <h5 class="card-subtitle mb-2 text-body-secondary" id="architecte">Architecte</h5>
+            <h6 class="card-text" id="date">Mise à l'eau
+        </div>
+
+
+        <div class="row align-items-start gap-4 gap-lg-0">
+            <div class="col-12 col-lg-8">
+                <table class="table table-striped table-hover" id="classement">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rang</th>
+                            <th scope="col">Skipper</th>
+                            <th scope="col">Sponsor</th>
+                            <th scope="col">Edition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-lg-4">
+                <select id="select-bateau" class="form-select" aria-label="Default select example">
+                    <option value="">-- Sélectionnez un modèle --</option>
+                    <option value="0">Manuard (2020)</option>
+                    <option value="1">Kouyoumdjian (2020)</option>
+                    <option value="2">VPLP (2019)</option>
+                    <option value="3">Verdier (2019)</option>
+                    <option value="4">VPLP (2019)</option>
+                    <option value="5">Verdier (2019)</option>
+                    <option value="6">Kouyoumdjian (2019)</option>
+                    <option value="7">VPLP (2018)</option>
+                    <option value="8">VPLP Verdier (2015)</option>
+                    <option value="9">VPLP Verdier (2015)</option>
+                    <option value="10">VPLP Verdier (2015)</option>
+                    <option value="11">VPLP Verdier (2015)</option>
+                    <option value="12">VPLP Verdier (2015)</option>
+                    <option value="13">VPLP Verdier (2015)</option>
+                    <option value="14">Fa (2014)</option>
+                    <option value="15">Kouyoumdjian (2011)</option>
+                    <option value="16">Owen-Clarke (2011)</option>
+                    <option value="17">VPLP Verdier (2011)</option>
+                    <option value="18">VPLP Verdier (2010)</option>
+                    <option value="19">VPLP Verdier (2010)</option>
+                    <option value="20">VPLP Verdier (2010)</option>
+                    <option value="21">Finot Conq (2008)</option>
+                    <option value="22">Hutton (2008)</option>
+                    <option value="23">Farr (2007)</option>
+                    <option value="24">Farr (2007)</option>
+                    <option value="25">Farr (2007)</option>
+                    <option value="26">Farr (2007)</option>
+                    <option value="27">Finot Conq (2007)</option>
+                    <option value="28">Finot Conq (2007)</option>
+                    <option value="29">Finot Conq (2007)</option>
+                    <option value="30">Kouyoumdjian (2007)</option>
+                    <option value="31">Owen-Clarke (2007)</option>
+                    <option value="32">Owen-Clarke (2007)</option>
+                    <option value="33">VPLP Verdier (2007)</option>
+                    <option value="34">VPLP Verdier (2007)</option>
+                    <option value="35">Farr (2006)</option>
+                    <option value="36">Farr (2006)</option>
+                    <option value="37">Owen-Clarke (2006)</option>
+                    <option value="38">Owen-Clarke (2006)</option>
+                    <option value="39">Murray-Burns & Dovell (2005)</option>
+                    <option value="40">Lavranos (2005)</option>
+                    <option value="41">Lombard (2004)</option>
+                    <option value="42">Lombard (2004)</option>
+                    <option value="43">Farr (2003)</option>
+                    <option value="44">Owen-Clarke (2003)</option>
+                    <option value="47">Finot Conq (2000)</option>
+                    <option value="48">Owen-Clarke (2000)</option>
+                    <option value="49">Rolland (2000)</option>
+                    <option value="50">Willye (2000)</option>
+                    <option value="51">Finot Conq (1999)</option>
+                    <option value="52">Lombard (1999)</option>
+                    <option value="53">Nivelt (1999)</option>
+                    <option value="54">Finot Conq (1998)</option>
+                    <option value="55">Finot Conq (1998)</option>
+                    <option value="56">Finot Conq (1998)</option>
+                    <option value="57">Finot Conq (1998)</option>
+                    <option value="58">Lombard (1998)</option>
+                    <option value="61">Finot Conq (1996)</option>
+                    <option value="62">Finot Conq (1996)</option>
+                    <option value="63">Fa (1996)</option>
+                    <option value="64">Joubert Nivelt (1995)</option>
+                    <option value="65">Finot Conq (1995)</option>
+                    <option value="66">Finot Conq (1994)</option>
+                    <option value="67">Finot Conq (1992)</option>
+                    <option value="68">Bouvet Petit (1992)</option>
+                    <option value="69">Harlé (1992)</option>
+                    <option value="70">Malingri (1992)</option>
+                    <option value="72">Noble Smith (1992)</option>
+                    <option value="73">Texedo Camberra (1992)</option>
+                    <option value="74">Harlé (1991)</option>
+                    <option value="75">Lucas (1991)</option>
+                    <option value="76">Fa (1990)</option>
+                    <option value="77">Finot Conq (1990)</option>
+                    <option value="78">Morrison (1990)</option>
+                    <option value="79">Bouvet Petit (1989)</option>
+                    <option value="80">Briand (1989)</option>
+                    <option value="81">Finot Conq (1989)</option>
+                    <option value="82">Harlé Mortain (1989)</option>
+                    <option value="83">Joubert Nivelt (1989)</option>
+                    <option value="85">Lindenberg-Bergstrom (1983)</option>
+                    <option value="87">Farr (1986)</option>
+                    <option value="88">Bouvet Petit (1986)</option>
+                    <option value="89">Lombard (1989)</option>
+                    <option value="90">Joubert Nivelt Terlain (1986)</option>
+                    <option value="91">Martin (1989)</option>
+                    <option value="92">Martin (1989)</option>
+                    <option value="93">Nickerson (1985)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="bateau.js"></script>
+</body>
+
+</html>
